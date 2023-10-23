@@ -2,7 +2,7 @@ require 'gossip'
 
 class ApplicationController < Sinatra::Base
   get '/' do
-    erb :index
+    erb :index, locals: {gossips: Gossip.all}
   end
 
   get '/gossips/new' do
@@ -17,11 +17,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/gossips/:id' do
-    id = params['id']
-    "Bonjour, #{params['id']}!"
-  end
-
-  get '/' do
-    erb :index, locals: {gossips: Gossip.all}
+    marina = params[:id].to_i
+    @potin = Gossip.all[marina]
+    erb :show 
   end
 end
