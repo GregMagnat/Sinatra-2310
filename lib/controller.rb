@@ -20,4 +20,8 @@ class ApplicationController < Sinatra::Base
     id = params['id']
     "Bonjour, #{params['id']}!"
   end
+
+  get '/' do
+    erb :index, locals: {gossips: Gossip.all}
+  end
 end
