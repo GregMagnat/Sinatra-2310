@@ -3,7 +3,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  post '/gossips/new' do
+  get '/gossips/new' do
+    erb :new_gossip
+  end
+
+  post '/gossips/new/' do
     puts "Ce programme ne fait rien pour le moment, on va donc afficher un message dans le terminal"
   end
 end
